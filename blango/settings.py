@@ -41,6 +41,7 @@ class Dev(Configuration):
             },
         }
 
+  INTERNAL_IPS = ["192.168.11.179"]
 
   # Quick-start development settings - unsuitable for production
   # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -77,9 +78,11 @@ class Dev(Configuration):
       'blog',
       'crispy_forms',
       'crispy_bootstrap5',
+      'debug_toolbar',
   ]
 
   MIDDLEWARE = [
+      "debug_toolbar.middleware.DebugToolbarMiddleware",
       'django.middleware.security.SecurityMiddleware',
       'django.contrib.sessions.middleware.SessionMiddleware',
       'django.middleware.common.CommonMiddleware',
