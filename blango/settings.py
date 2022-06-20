@@ -43,6 +43,14 @@ class Dev(Configuration):
 
     INTERNAL_IPS = ["192.168.11.179"]
 
+    REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.BasicAuthentication",
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+    }
+
     # Quick-start development settings - unsuitable for production
     # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -97,7 +105,8 @@ class Dev(Configuration):
         'allauth.account',
         'allauth.socialaccount',
         'allauth.socialaccount.providers.google',
-        'rest_framework'
+        'rest_framework',
+        'rest_framework.authtoken',
     ]
 
     MIDDLEWARE = [
